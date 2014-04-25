@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+		<a href="../">back</a>
+
+	<p>{{info}}</p>
+	<div>
+	{{#users}}
+	{{name}} {{state}}
+	{{/users}}
+	
+	Employees:
+	<ul>{{#users}}
+       <li>{{name}} {{id}} {{state}}</li>
+     {{/users}}</ul>
+
+	</div>
+	<h2>users object</h2>
+	{{users}}
+	<p>
+	<h2>countries object</h2>
+	{{countries}}
+	
+	<p><table>{{#countries}}
+	<tr><td>{{name}}
+	{{/countries}}
+	</table>
+	<p>
+	<a href="../">back</a>
+  </body>
+</html>

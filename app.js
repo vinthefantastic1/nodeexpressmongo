@@ -9,12 +9,15 @@ var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var test = require('./routes/test');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
+app.set('title', 'express tutorial');
+
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -26,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/test', test);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -47,8 +51,10 @@ if (app.get('env') === 'development') {
         });
     });
 	
-	mongoose.connect('mongodb://127.0.0.1/tutorial');
+	mongoose.connect('mongodb://localhost/tutorial');
 }
+
+
 
 //fs.readdirSync(__dirname + '/models').forEach(function(filename) {
 	//if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)

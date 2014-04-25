@@ -7,5 +7,8 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+	<p>{{info}}</p>
+	<p>use <b><a href="http://{{host}}/test">{{host}}/test</a></b> for the test page...
+	<p>use <b><a href="http://{{host}}/users">{{host}}/users</a></b> for the users page...
   </body>
 </html>
