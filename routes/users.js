@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 
 var usersSchema = new Schema({
 	name: String,
-	state: String
+	state: String,
+	user:{dept: String, upi: String}
 });
 
 var countrySchema = new Schema({
@@ -17,11 +18,6 @@ var conn = mongoose.createConnection('localhost','work');
 var model1 = conn.model('countries', countrySchema);  //your collection 
 
 mongoose.model('users',usersSchema);
-
-/* GET users listing. */
-// router.get('/', function(req, res) {
-  // res.send('respond with a resource');
-// });
 
 
 router.get('/', function(req, res) {
@@ -49,11 +45,42 @@ router.get('/', function(req, res) {
 
 	// console.log('222222-tempusers');
 	// console.log(tempusers);
+	console.log(tempusers);
   
   	  // res.render('users', { title: 'Users Page', info:"you're on the users page", users:tempusers });
 
 });
 
+router.post('/adduser', function(req, res) {
+
+    // Set our internal DB variable
+	console.log(db);
+    var db = req.db;
+
+    // Get our form values. These rely on the "name" attributes
+    var userName = req.body.username;
+    var userEmail = req.body.useremail;
+
+    var collection = db.get('usercollection');
+
+    // Submit to the DB
+    // collection.insert({
+        // "username" : userName,
+        // "email" : userEmail
+    // }, function (err, doc) {
+        // if (err) {
+//            If it failed, return error
+            // res.send("There was a problem adding the information to the database.");
+        // }
+        // else {
+//            If it worked, set the header so the address bar doesn't still say /adduser
+            // res.location("userlist");
+  //          And forward to success page
+            // res.redirect("userlist");
+        // }
+    // });
+	
+});
 
 
 module.exports = router;

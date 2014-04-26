@@ -10,5 +10,14 @@
 	<p>{{info}}</p>
 	<p>use <b><a href="http://{{host}}/test">{{host}}/test</a></b> for the test page...
 	<p>use <b><a href="http://{{host}}/users">{{host}}/users</a></b> for the users page...
+	
+	<form method="post" action="/adduser">
+    name: <input type="text" name="name">
+    email:<input type="text" name="email">
+    department:<input type="text" name="user[dept]">
+    empl id:<input type="text" name="user[upi]">
+    <input type="submit" value="Submit">
+	</form>
+
   </body>
 </html>
