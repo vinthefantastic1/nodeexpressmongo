@@ -19,14 +19,25 @@
 
 	
 	<h2>visitors:</h2>
-	<table border='0'>{{#users}}
+	<table border='0'>
+		<tr>
+		<th>fname</th>
+		<th>lname</th>
+		<th>company</th>
+		<th>pass type</th>
+		<th>last update user</th>
+		<th>last update date</th>
+		<th>create date</th>
+		</tr>
+		<tr>{{#users}}
        <td>{{first_name}} </td>
        <td>{{last_name}} </td>
        <td>{{company}} </td>
        <td>{{pass_type}} </td>
-       <td>{{qlast_update_user}} </td>
-       <td>{{last_update_date}} </td>
-	   <tr></tr>
+       <td>{{last_update_user}} </td>
+       <td>{{last_update_dateS}} </td>
+       <td>{{creation_dateS}} </td>
+	   </tr>
      {{/users}}</table>
 
 	</div>
