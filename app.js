@@ -9,13 +9,16 @@ var fs = require('fs');
 var colors = require('colors');
 
 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var visitors = require('./routes/visitors');
 var test = require('./routes/test');
 var adduser = require('./routes/adduser');
 
 var app = express();
 
+app.locals.moment = require('moment');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
@@ -34,6 +37,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/test', test);
 app.use('/adduser', adduser);
+app.use('/visitors', visitors);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
