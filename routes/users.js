@@ -14,7 +14,8 @@ var countrySchema = new Schema({
 	name: String
 	});
 
-var conn = mongoose.createConnection('localhost','work');
+var conn = mongoose.createConnection('localhost','tutorial');
+var connw = mongoose.createConnection('localhost','work');
 var model1 = conn.model('countries', countrySchema);  //your collection 
 
 mongoose.model('users',usersSchema);

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1>{{ title }}</h1>
+	<h3>{{cDate}}</h3>
+	<h3>{{cdate2}}</h3>
+	<h3>moment example1: {{ moment }}</h3>
+	<h3>moment example2: {{ render(moment.add('days', 2).fromNow()) }}  </h3>
+	<h3>moment example3: {{ moment3}} </h3>
+		<a href="../">back</a>
+
+	<p>{{info}}</p>
+	<div>
+
+	
+	<h2>visitors:</h2>
+	<table border='0'>{{#users}}
+       <td>{{first_name}} </td>
+       <td>{{last_name}} </td>
+       <td>{{company}} </td>
+       <td>{{pass_type}} </td>
+       <td>{{qlast_update_user}} </td>
+       <td>{{last_update_date}} </td>
+	   <tr></tr>
+     {{/users}}</table>
+
+	</div>
+	
+	<p>
+	<p>
+	<a href="../">back</a>
+	
+
+  </body>
+</html>
