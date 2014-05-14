@@ -78,7 +78,11 @@ router.post('/', function(req, res) {
 		console.log( warning("value inserted to db: ") +  happy(arg1) );
 		//console.log(req.body);
 
-		res.send(req.body,200);
+		//res.send(req.body,200);
+		//res.send(200);
+
+		res.render('adduser', { title: 'user added', info:newUser});
+  
 
 		});
   

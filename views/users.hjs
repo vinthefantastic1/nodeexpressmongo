@@ -10,13 +10,11 @@
 
 	<p>{{info}}</p>
 	<div>
-	{{#users}}
-	{{name}} {{state}}
-	{{/users}}
+
 	
-	Employees:
+	<h2>employees:</h2>
 	<ul>{{#users}}
-       <li>{{name}} {{id}} {{state}}</li>
+       <li>{{name}}  {{state}}</li>
      {{/users}}</ul>
 
 	</div>
