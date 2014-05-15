@@ -25,12 +25,12 @@
 		<th>create date</th>
 		</tr>
 		<tr>{{#users}}
-       <td>{{first_name}} {{last_name}} / {{company}} </td>
-       <td>{{pass_type}} </td>
-       <td>{{creation_user}} </td>
-       <td>{{last_update_user}} </td>
-       <td>{{last_update_dateS}} </td>
-       <td>{{creation_dateS}} </td>
+       <td><small>{{first_name}} {{last_name}} / {{company}}</small> </td>
+       <td><small>{{pass_type}}</small> </td>
+       <td><small>{{p_o_e}}</small> </td>
+       <td><small>{{last_update_user}}</small> </td>
+       <td><small>{{last_update_dateS}}</small> </td>
+       <td><small>{{creation_dateS}}</small> </td>
 	   </tr>
      {{/users}}</table>
 

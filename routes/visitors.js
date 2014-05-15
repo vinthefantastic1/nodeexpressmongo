@@ -15,6 +15,7 @@ var visSchema = new Schema({
 	creation_date: Date,
 	creation_user: String,
 	pass_type: String,
+	point_of_entry: String,
 	creation_dateS : String,
 	last_update_dateS : String,
 	p_o_e: String
@@ -34,16 +35,24 @@ router.get('/', function(req, res) {
   Vismodel.find({creation_date: {$gt:cdate}}, null,{sort: {'creation_date':-1}} , function(err,visitors) {
 	var cdate2 = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 	var currentDate = new Date();
-	//console.log(currentDate);
 	
 	for (l in visitors) {
 	//	console.log(l, visitors[l]["last_name"], moment(visitors[l]["creation_date"]).format("ddd, MMMM do YYYY, h:mm:ss a"));
-		visitors[l]["creation_dateS"] = moment(visitors[l]["creation_date"]).format("dd, MMM d YY, h:mm:ss a");
-		visitors[l]["last_update_dateS"] = moment(visitors[l]["last_update_date"]).format("dd, MMM d YY, h:mm:ss a");
-		visitors[l]["p_o_e"] = visitors[l]["last_update_user"];
-		if (visitors[l]["last_update_user"] == "gsdadmin") {
+		var createDate = visitors[l]["creation_date"];
+		var updateDate = visitors[l]["last_update_date"];
+		var createdBy = visitors[l]["creation_user"];
+		var updatedBy = visitors[l]["last_update_user"];
+		
+		visitors[l]["creation_dateS"] = moment(createDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
+		visitors[l]["last_update_dateS"] = moment(updateDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
+		visitors[l]["p_o_e"] = updatedBy;
+		if (createdBy == "gsdadmin") {
 			visitors[l]["p_o_e"] = visitors[l]["point_of_entry"];
 			}
+		if (createdBy == updatedBy) {
+			//
+			}
+			
 		}
 		
 //		console.log(visitors[0]["creation_dateS"]);
