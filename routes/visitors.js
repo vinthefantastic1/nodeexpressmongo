@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var moment = require('moment');
 
 var visSchema = new Schema({
+	visitor_id: Number,
 	first_name: String,
 	last_name: String,
 	last_update_user: String,
@@ -18,7 +19,8 @@ var visSchema = new Schema({
 	point_of_entry: String,
 	creation_dateS : String,
 	last_update_dateS : String,
-	p_o_e: String
+	p_o_e: String,
+	createUpdate: String
 	
 });
 
@@ -42,23 +44,32 @@ router.get('/', function(req, res) {
 		var updateDate = visitors[l]["last_update_date"];
 		var createdBy = visitors[l]["creation_user"];
 		var updatedBy = visitors[l]["last_update_user"];
+		var p_o_e = visitors[l]["point_of_entry"];
 		
 		visitors[l]["creation_dateS"] = moment(createDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
 		visitors[l]["last_update_dateS"] = moment(updateDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
 		visitors[l]["p_o_e"] = updatedBy;
+		
+		visitors[l].createUpdate = "x";
 		if (createdBy == "gsdadmin") {
-			visitors[l]["p_o_e"] = visitors[l]["point_of_entry"];
+			visitors[l]["p_o_e"] = p_o_e;
+			createdBy = p_o_e;
 			}
 		if (createdBy == updatedBy) {
-			//
+			visitors[l].createUpdate = createdBy;
 			}
-			
+		else {
+			visitors[l].createUpdate = p_o_e ;
+			}
 		}
 		
 //		console.log(visitors[0]["creation_dateS"]);
 		
 	if (err) return console.error(err);
-	res.render('visitors', { title: 'Visitors Page', info:"you're on the visitors page", users:visitors, cDate:currentDate, cdate2:cdate2, moment3:moment3 });
+	
+	var trows = visitors.length;
+	res.render('visitors', { title: 'Visitors Page', info:"you're on the visitors page", users:visitors, cDate:currentDate, cdate2:cdate2, moment3:moment3, trows:trows });
+	
 	});
 });
 

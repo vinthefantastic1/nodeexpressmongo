@@ -14,21 +14,21 @@
 	<div>
 
 	
-	<h2>visitors:</h2>
+	<h2>visitors: {{trows}}</h2>
 	<table border='0'>
 		<tr>
+		<th>id</th>
 		<th>name / company</th>
 		<th>pass type</th>
-		<th>created by</th>
-		<th>last update user</th>
+		<th>created by /updated by</th>
 		<th>last update date</th>
 		<th>create date</th>
 		</tr>
 		<tr>{{#users}}
+       <td><small>{{visitor_id}}</small> </td>
        <td><small>{{first_name}} {{last_name}} / {{company}}</small> </td>
        <td><small>{{pass_type}}</small> </td>
-       <td><small>{{p_o_e}}</small> </td>
-       <td><small>{{last_update_user}}</small> </td>
+       <td><small>{{createUpdate}}</small>  </td>
        <td><small>{{last_update_dateS}}</small> </td>
        <td><small>{{creation_dateS}}</small> </td>
 	   </tr>
