@@ -34,10 +34,10 @@
 	</style>
 	<div style="height:auto;width:260px;overflow:hidden; qborder:solid #dddddd 1px">
 	<form method="post" action="/adduser">
-    <div>name: <input type="text" class="form-control" name="name"></div>
-    <div>email:<input type="text" class="form-control" name="email"></div>
-    <div>department:<input type="text" class="form-control" name="user[dept]"></div>
-    <div>empl id:<input  type="text" class="form-control" name="user[upi]"></div>
+    <div>name: <input type="text" class="form-control" name="name" required> </div>
+    <div>email:<input type="email" class="form-control" name="email" placeholder="enter your email address" required></div>
+    <div>department:<input type="text" class="form-control" name="user[dept]" required></div>
+    <div>empl id:<input  type="number" min="100" max="9999" class="form-control" name="user[upi]" required ></div>
     <input type="submit" value="Submit">
 	</form>
 	</div>
