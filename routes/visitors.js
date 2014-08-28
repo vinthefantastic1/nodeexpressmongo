@@ -46,8 +46,8 @@ router.get('/', function(req, res) {
 		var updatedBy = visitors[l]["last_update_user"];
 		var p_o_e = visitors[l]["point_of_entry"];
 		
-		visitors[l]["creation_dateS"] = moment(createDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
-		visitors[l]["last_update_dateS"] = moment(updateDate).add(4,'hours').format("MMM D YY, h:mm:ss a");
+		visitors[l]["creation_dateS"] = moment(createDate).add(0,'hours').format("MMM D YY, h:mm:ss a");
+		visitors[l]["last_update_dateS"] = moment(updateDate).add(0,'hours').format("MMM D YY, h:mm:ss a");
 		visitors[l]["p_o_e"] = updatedBy;
 		
 		visitors[l].createUpdate = "x";
