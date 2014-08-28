@@ -16,28 +16,28 @@
 	<style>
 	.lbl {width:100px; float:left}
 	
-	input[type="text"]{
-    border:1px solid #ff0000;
+	qinput[type="text"]{
+    border:1px solid #FBFAED;
     background-color:#FBF8EC;
 	padding-bottom:5px;
 	}
 
 	.lbl2 {width:100px; float:left}
 	
-	div.nobottom > input[type="text"]{
-    border:1px solid #ff0000;
+	qdiv.nobottom > input[type="text"]{
+    qborder:1px solid #ff0000;
 	border-bottom:0;
     background-color:#FBF8EC;
 	padding-bottom:3px;
 	}
 	
 	</style>
-	<div style="height:150px;width:260px;overflow:hidden; border:solid #dddddd 1px">
+	<div style="height:auto;width:260px;overflow:hidden; qborder:solid #dddddd 1px">
 	<form method="post" action="/adduser">
-    <div class="nobottom"><div class="lbl2">name:</div> <input type="text" name="name"></div>
-    <div class="nobottom"><div class="lbl">email:</div><input type="text" name="email"></div>
-    <div class="nobottom"><div class="lbl2">department:</div><input type="text" name="user[dept]"></div>
-    <div><div class="lbl">empl id:</div><input  type="text" name="user[upi]"></div>
+    <div>name: <input type="text" class="form-control" name="name"></div>
+    <div>email:<input type="text" class="form-control" name="email"></div>
+    <div>department:<input type="text" class="form-control" name="user[dept]"></div>
+    <div>empl id:<input  type="text" class="form-control" name="user[upi]"></div>
     <input type="submit" value="Submit">
 	</form>
 	</div>
